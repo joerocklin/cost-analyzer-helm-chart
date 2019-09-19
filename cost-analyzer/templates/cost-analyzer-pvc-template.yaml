@@ -16,6 +16,9 @@ spec:
     {{- else }}
       storage: 0.2Gi
     {{ end }}
+  {{- if .Values.persistentVolume.storageClass }}
+  storageClassName: {{ .Values.persistentVolume.storageClass }}
+  {{ end }}
 {{- end -}}
 {{- else -}}
 kind: PersistentVolumeClaim
@@ -34,4 +37,7 @@ spec:
     {{- else }}
       storage: 0.2Gi
     {{ end }}
+  {{- if .Values.persistentVolume.storageClass }}
+  storageClassName: {{ .Values.persistentVolume.storageClass }}
+  {{ end }}
 {{- end -}}

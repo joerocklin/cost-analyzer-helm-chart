@@ -17,6 +17,7 @@ Parameter | Description | Default
 `prometheus.nodeExporter.enabled` `prometheus.serviceAccounts.nodeExporter.create` | If false, do not crate NodeExporter daemonset.  | `true`
 `persistentVolume.enabled` | If true, Kubecost will create a Persistent Volume Claim for product config data.  | `true`
 `persistentVolume.size` | Define PVC size for cost-analyzer  | `0.2Gi`
+`persistentVolume.storageClass` | Define the PVC storageClass for cost-analyzer  | `not set`
 `ingress.enabled` | If true, Ingress will be created | `false`
 `ingress.annotations` | Ingress annotations | `{}`
 `ingress.paths` | Ingress paths | `["/"]`
