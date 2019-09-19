@@ -96,6 +96,9 @@ remoteWrite:
     installLocal: true
     auth:
       password: admin # change me
+    persistentVolume:
+      size: 32Gi
+      # storageClass: default
 
 prometheus:
   extraScrapeConfigs: |

@@ -37,7 +37,7 @@ spec:
         volumes:
           - name: postgres-pv-volume
             persistentVolumeClaim:
-              claimName: postgres-pv-claim
+              claimName: {{ template "cost-analyzer.fullname" . }}-postgres
 {{- end }}
 {{- end }}
 {{- end }}

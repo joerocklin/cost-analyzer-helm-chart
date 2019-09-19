@@ -1,0 +1,25 @@
+{{- if .Values.remoteWrite -}}
+{{- if .Values.remoteWrite.postgres -}}
+{{- if .Values.remoteWrite.postgres.enabled -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "cost-analyzer.fullname" . }}-postgres
+  labels:
+    {{ include "cost-analyzer.commonLabels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+    {{- if .Values.remoteWrite.postgres.persistentVolume.size }}
+      storage: {{ .Values.remoteWrite.postgres.persistentVolume.size }}
+    {{- else }}
+      storage: 32Gi
+    {{ end }}
+  {{- if .Values.remoteWrite.postgres.persistentVolume.storageClass }}
+  storageClassName: {{ .Values.remoteWrite.postgres.persistentVolume.storageClass }}
+  {{ end }}
+{{- end }}
+{{- end }}
+{{- end }}
